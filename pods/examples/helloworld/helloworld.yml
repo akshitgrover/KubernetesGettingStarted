@@ -1,0 +1,13 @@
+apiVersion: "v1"
+
+kind: "Pod"
+
+metadata:
+  name: "helloworld-pod"
+
+spec:
+  containers:
+  - name: "helloworld-container"
+    image: "akshitgrover/helloworld"
+    ports:
+    - containerPort: 3000
