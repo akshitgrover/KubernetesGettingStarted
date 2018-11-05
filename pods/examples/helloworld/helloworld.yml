@@ -4,6 +4,8 @@ kind: "Pod"
 
 metadata:
   name: "helloworld-pod"
+  labels:
+    app: "helloworld"
 
 spec:
   containers:
