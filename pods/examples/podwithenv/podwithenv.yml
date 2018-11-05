@@ -1,0 +1,20 @@
+apiVersion: "v1"
+
+kind: "Pod"
+
+metadata:
+  name: "podwithenv"
+  labels:
+    app: "podwithenv"
+
+spec:
+  containers:
+  - name: podwithenv-container
+    image: akshitgrover/podwithenv-example
+    env:
+    - name: "PORT"
+      value: "3006"
+    - name: "MESSAGE"
+      value: "Hello from podwithenv example"
+    ports:
+    - containerPort: 3006
