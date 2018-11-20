@@ -1,0 +1,14 @@
+apiVersion: v1
+
+kind: ConfigMap
+
+metadata:
+  name: helloworld-configmap
+  namespace: default
+
+data:
+  file: |-
+    helloworld
+    This is a configMap value created from a file
+  literal: helloworld-literal
+  port: "3004"

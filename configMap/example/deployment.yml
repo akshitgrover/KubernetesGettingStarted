@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: helloworld-configmap-deployment
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helloworld-configmap
+  
+  template:
+    metadata:
+      labels:
+        app: helloworld-configmap
+    spec:
+      containers:
+      - name: helloworld-configmap-container
+        image: akshitgrover/helloworld-configmap-app
+        ports:
+        - containerPort: 3004
+        env:
+        - name: CONTAINER_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: helloworld-configmap
+              key: port
+        volumeMounts:
+        - name: helloworld-configmap-vol
+          mountPath: /etc/config
+          readOnly: true
+      volumes:
+      - name: helloworld-configmap-vol
+        configMap:
+          name: helloworld-configmap
+          items:
+          - key: file
+            path: helloworld-fromFile
+          - key: literal
+            path: helloworld-fromLiteral
