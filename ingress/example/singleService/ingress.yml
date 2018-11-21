@@ -1,0 +1,11 @@
+apiVersion: extensions/v1beta1
+
+kind: Ingress
+
+metadata:
+  name: single-service-ingress
+
+spec:
+  backend:
+    serviceName: single-service-ingress
+    servicePort: 3004

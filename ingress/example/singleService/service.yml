@@ -1,0 +1,14 @@
+apiVersion: v1
+
+kind: Service
+
+metadata:
+  name: single-service-ingress
+
+spec:
+  type: ClusterIP
+  selector:
+    ingress-type: single-service
+  ports:
+  - targetPort: ingressappport
+    port: 3004

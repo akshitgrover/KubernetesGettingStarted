@@ -1,0 +1,17 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: ingress-pod
+  labels:
+    ingress-type: single-service
+
+spec:
+  containers:
+  - name: ingress-container
+    image: akshitgrover/ingress_single-service-app
+    ports:
+    - name: ingressappport
+      containerPort: 3000
+    
